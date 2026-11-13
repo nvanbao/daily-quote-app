@@ -19,3 +19,5 @@ function showRandomQuote() {
 }
 
 showRandomQuote();
+
+document.getElementById("new-quote").addEventListener("click", showRandomQuote);
