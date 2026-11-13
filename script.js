@@ -27,3 +27,8 @@ function showRandomQuote() {
 showRandomQuote();
 
 document.getElementById("new-quote").addEventListener("click", showRandomQuote);
+
+document.getElementById("copy").addEventListener("click", () => {
+  const content = `${quoteEl.textContent} ${authorEl.textContent}`;
+  navigator.clipboard.writeText(content);
+});
