@@ -7,3 +7,15 @@ const quotes = [
   { text: "Premature optimization is the root of all evil.", author: "Donald Knuth" },
   { text: "Make it work, make it right, make it fast.", author: "Kent Beck" },
 ];
+
+const quoteEl = document.getElementById("quote");
+const authorEl = document.getElementById("author");
+
+function showRandomQuote() {
+  const index = Math.floor(Math.random() * quotes.length);
+  const { text, author } = quotes[index];
+  quoteEl.textContent = text;
+  authorEl.textContent = "— " + author;
+}
+
+showRandomQuote();
