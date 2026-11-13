@@ -11,8 +11,14 @@ const quotes = [
 const quoteEl = document.getElementById("quote");
 const authorEl = document.getElementById("author");
 
+let lastIndex = -1;
+
 function showRandomQuote() {
-  const index = Math.floor(Math.random() * quotes.length);
+  let index;
+  do {
+    index = Math.floor(Math.random() * quotes.length);
+  } while (index === lastIndex);
+  lastIndex = index;
   const { text, author } = quotes[index];
   quoteEl.textContent = text;
   authorEl.textContent = "— " + author;
