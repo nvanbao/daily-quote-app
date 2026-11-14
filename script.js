@@ -17,16 +17,17 @@ const quoteEl = document.getElementById("quote");
 const authorEl = document.getElementById("author");
 
 let lastIndex = -1;
+let currentQuote = null;
 
 function showRandomQuote() {
-  let index;
-  do {
-    index = Math.floor(Math.random() * quotes.length);
-  } while (index === lastIndex);
-  lastIndex = index;
-  const { text, author } = quotes[index];
-  quoteEl.textContent = text;
-  authorEl.textContent = "— " + author;
+    let index;
+    do {
+        index = Math.floor(Math.random() * quotes.length);
+    } while (index === lastIndex);
+    lastIndex = index;
+    currentQuote = quotes[index];
+    quoteEl.textContent = currentQuote.text;
+    authorEl.textContent = "— " + currentQuote.author;
 }
 
 showRandomQuote();
@@ -61,4 +62,33 @@ document.addEventListener("keydown", (event) => {
     if (event.key === "n" || event.key === "N") {
         showRandomQuote();
     }
+});
+
+const FAVORITES_KEY = "daily-quote-favorites";
+
+function loadFavorites() {
+    try {
+        return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveFavorites(list) {
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(list));
+}
+
+const favoriteBtn = document.getElementById("favorite");
+
+favoriteBtn.addEventListener("click", () => {
+    const list = loadFavorites();
+    const exists = list.some((q) => q.text === currentQuote.text);
+    if (!exists) {
+        list.push(currentQuote);
+        saveFavorites(list);
+    }
+    favoriteBtn.textContent = exists ? "Đã có rồi" : "Đã lưu!";
+    setTimeout(() => {
+        favoriteBtn.textContent = "Yêu thích";
+    }, 1500);
 });
