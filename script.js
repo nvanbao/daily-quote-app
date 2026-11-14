@@ -43,3 +43,14 @@ copyBtn.addEventListener("click", () => {
         copyBtn.textContent = "Copy";
     }, 1500);
 });
+
+function getGreeting() {
+    const hour = new Date().getHours();
+    if (hour < 5) return "Chào buổi tối";
+    if (hour < 11) return "Chào buổi sáng";
+    if (hour < 13) return "Chào buổi trưa";
+    if (hour < 18) return "Chào buổi chiều";
+    return "Chào buổi tối";
+}
+
+document.getElementById("greeting").textContent = getGreeting();
