@@ -80,15 +80,36 @@ function saveFavorites(list) {
 
 const favoriteBtn = document.getElementById("favorite");
 
+const favoritesEl = document.getElementById("favorites");
+
+function renderFavorites() {
+    const list = loadFavorites();
+    favoritesEl.innerHTML = "";
+    if (list.length === 0) {
+        const empty = document.createElement("li");
+        empty.textContent = "Chưa có câu nào.";
+        favoritesEl.appendChild(empty);
+        return;
+    }
+    list.forEach((q) => {
+        const li = document.createElement("li");
+        li.textContent = `${q.text} — ${q.author}`;
+        favoritesEl.appendChild(li);
+    });
+}
+
 favoriteBtn.addEventListener("click", () => {
     const list = loadFavorites();
     const exists = list.some((q) => q.text === currentQuote.text);
     if (!exists) {
         list.push(currentQuote);
         saveFavorites(list);
+        renderFavorites();
     }
     favoriteBtn.textContent = exists ? "Đã có rồi" : "Đã lưu!";
     setTimeout(() => {
         favoriteBtn.textContent = "Yêu thích";
     }, 1500);
 });
+
+renderFavorites();
