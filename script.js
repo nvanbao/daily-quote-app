@@ -33,7 +33,13 @@ showRandomQuote();
 
 document.getElementById("new-quote").addEventListener("click", showRandomQuote);
 
-document.getElementById("copy").addEventListener("click", () => {
-  const content = `${quoteEl.textContent} ${authorEl.textContent}`;
-  navigator.clipboard.writeText(content);
+const copyBtn = document.getElementById("copy");
+
+copyBtn.addEventListener("click", () => {
+    const content = `${quoteEl.textContent} ${authorEl.textContent}`;
+    navigator.clipboard.writeText(content);
+    copyBtn.textContent = "Đã copy!";
+    setTimeout(() => {
+        copyBtn.textContent = "Copy";
+    }, 1500);
 });
