@@ -6,6 +6,11 @@ const quotes = [
   { text: "Talk is cheap. Show me the code.", author: "Linus Torvalds" },
   { text: "Premature optimization is the root of all evil.", author: "Donald Knuth" },
   { text: "Make it work, make it right, make it fast.", author: "Kent Beck" },
+  { text: "Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.", author: "Tục ngữ Việt Nam" },
+  { text: "Uống nước nhớ nguồn.", author: "Tục ngữ Việt Nam" },
+  { text: "Lá lành đùm lá rách.", author: "Tục ngữ Việt Nam" },
+  { text: "Programs must be written for people to read.", author: "Harold Abelson" },
+  { text: "Simplicity is the soul of efficiency.", author: "Austin Freeman" },
 ];
 
 const quoteEl = document.getElementById("quote");
