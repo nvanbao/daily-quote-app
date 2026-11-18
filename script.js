@@ -116,3 +116,14 @@ favoriteBtn.addEventListener("click", () => {
 });
 
 renderFavorites();
+
+function getQuoteOfDay() {
+    const today = new Date();
+    const startOfYear = new Date(today.getFullYear(), 0, 0);
+    const dayOfYear = Math.floor((today - startOfYear) / 86400000);
+    return quotes[dayOfYear % quotes.length];
+}
+
+document.getElementById("daily").addEventListener("click", () => {
+    displayQuote(getQuoteOfDay());
+});
