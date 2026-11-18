@@ -158,3 +158,11 @@ authorFilter.addEventListener("change", () => {
     selectedAuthor = authorFilter.value;
     showRandomQuote();
 });
+
+document.getElementById("clear-favorites").addEventListener("click", () => {
+    if (loadFavorites().length === 0) return;
+    if (confirm("Xóa tất cả câu yêu thích?")) {
+        saveFavorites([]);
+        renderFavorites();
+    }
+});
