@@ -18,6 +18,7 @@ const authorEl = document.getElementById("author");
 
 let lastIndex = -1;
 let currentQuote = null;
+let selectedAuthor = "";
 
 function displayQuote(quote) {
     currentQuote = quote;
@@ -25,14 +26,18 @@ function displayQuote(quote) {
     authorEl.textContent = "— " + quote.author;
 }
 
-function showRandomQuote() {
-    let quote;
-    do {
-        quote = quotes[Math.floor(Math.random() * quotes.length)];
-    } while (quote === currentQuote);
-    displayQuote(quote);
+function getPool() {
+    return selectedAuthor ? quotes.filter((q) => q.author === selectedAuthor) : quotes;
 }
 
+function showRandomQuote() {
+    const pool = getPool();
+    let quote;
+    do {
+        quote = pool[Math.floor(Math.random() * pool.length)];
+    } while (pool.length > 1 && quote === currentQuote);
+    displayQuote(quote);
+}
 showRandomQuote();
 
 document.getElementById("new-quote").addEventListener("click", showRandomQuote);
@@ -126,4 +131,19 @@ function getQuoteOfDay() {
 
 document.getElementById("daily").addEventListener("click", () => {
     displayQuote(getQuoteOfDay());
+});
+
+const authorFilter = document.getElementById("author-filter");
+
+const authors = [...new Set(quotes.map((q) => q.author))];
+authors.forEach((name) => {
+    const option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+    authorFilter.appendChild(option);
+});
+
+authorFilter.addEventListener("change", () => {
+    selectedAuthor = authorFilter.value;
+    showRandomQuote();
 });
