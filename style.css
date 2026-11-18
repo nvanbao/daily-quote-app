@@ -117,3 +117,16 @@ select {
         border-color: #4b5563;
     }
 }
+
+.remove {
+    margin: 0 0 0 6px;
+    padding: 0 6px;
+    background: transparent;
+    color: #9ca3af;
+    font-size: 0.9rem;
+}
+
+    .remove:hover {
+        background: transparent;
+        color: #ef4444;
+    }
