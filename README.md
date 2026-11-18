@@ -9,6 +9,9 @@ Trang web hiển thị câu trích dẫn ngẫu nhiên, viết bằng HTML, CSS 
 - Nút copy câu trích dẫn
 - Lưu câu yêu thích vào trình duyệt (localStorage) và xem lại danh sách
 - Tự chuyển giao diện tối theo cài đặt của hệ thống
+- Nút "Câu của ngày": mỗi ngày một câu cố định
+- Lọc câu theo tác giả
+- Xóa từng câu hoặc tất cả câu yêu thích
 
 ## Cách chạy
 Mở file `index.html` bằng trình duyệt.
