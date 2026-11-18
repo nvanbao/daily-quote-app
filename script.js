@@ -90,6 +90,12 @@ const favoriteBtn = document.getElementById("favorite");
 
 const favoritesEl = document.getElementById("favorites");
 
+function removeFavorite(text) {
+    const list = loadFavorites().filter((q) => q.text !== text);
+    saveFavorites(list);
+    renderFavorites();
+}
+
 function renderFavorites() {
     const list = loadFavorites();
     favoritesEl.innerHTML = "";
@@ -101,7 +107,12 @@ function renderFavorites() {
     }
     list.forEach((q) => {
         const li = document.createElement("li");
-        li.textContent = `${q.text} — ${q.author}`;
+        li.textContent = `${q.text} — ${q.author} `;
+        const removeBtn = document.createElement("button");
+        removeBtn.textContent = "✕";
+        removeBtn.className = "remove";
+        removeBtn.addEventListener("click", () => removeFavorite(q.text));
+        li.appendChild(removeBtn);
         favoritesEl.appendChild(li);
     });
 }
