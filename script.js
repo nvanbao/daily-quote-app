@@ -19,15 +19,18 @@ const authorEl = document.getElementById("author");
 let lastIndex = -1;
 let currentQuote = null;
 
+function displayQuote(quote) {
+    currentQuote = quote;
+    quoteEl.textContent = quote.text;
+    authorEl.textContent = "— " + quote.author;
+}
+
 function showRandomQuote() {
-    let index;
+    let quote;
     do {
-        index = Math.floor(Math.random() * quotes.length);
-    } while (index === lastIndex);
-    lastIndex = index;
-    currentQuote = quotes[index];
-    quoteEl.textContent = currentQuote.text;
-    authorEl.textContent = "— " + currentQuote.author;
+        quote = quotes[Math.floor(Math.random() * quotes.length)];
+    } while (quote === currentQuote);
+    displayQuote(quote);
 }
 
 showRandomQuote();
