@@ -98,3 +98,22 @@ h2 {
         color: #d1d5db;
     }
 }
+
+select {
+    display: block;
+    margin: 12px auto 4px;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #111827;
+    font-size: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    select {
+        background: #111827;
+        color: #f9fafb;
+        border-color: #4b5563;
+    }
+}
