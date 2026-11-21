@@ -1,22 +1,21 @@
 const quotes = [
-  { text: "Có công mài sắt, có ngày nên kim.", author: "Tục ngữ Việt Nam" },
-  { text: "Đi một ngày đàng, học một sàng khôn.", author: "Tục ngữ Việt Nam" },
-  { text: "Thất bại là mẹ thành công.", author: "Tục ngữ Việt Nam" },
-  { text: "Có chí thì nên.", author: "Tục ngữ Việt Nam" },
-  { text: "Talk is cheap. Show me the code.", author: "Linus Torvalds" },
-  { text: "Premature optimization is the root of all evil.", author: "Donald Knuth" },
-  { text: "Make it work, make it right, make it fast.", author: "Kent Beck" },
-  { text: "Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.", author: "Tục ngữ Việt Nam" },
-  { text: "Uống nước nhớ nguồn.", author: "Tục ngữ Việt Nam" },
-  { text: "Lá lành đùm lá rách.", author: "Tục ngữ Việt Nam" },
-  { text: "Programs must be written for people to read.", author: "Harold Abelson" },
-  { text: "Simplicity is the soul of efficiency.", author: "Austin Freeman" },
+    { text: "Có công mài sắt, có ngày nên kim.", author: "Tục ngữ Việt Nam" },
+    { text: "Đi một ngày đàng, học một sàng khôn.", author: "Tục ngữ Việt Nam" },
+    { text: "Thất bại là mẹ thành công.", author: "Tục ngữ Việt Nam" },
+    { text: "Có chí thì nên.", author: "Tục ngữ Việt Nam" },
+    { text: "Talk is cheap. Show me the code.", author: "Linus Torvalds" },
+    { text: "Premature optimization is the root of all evil.", author: "Donald Knuth" },
+    { text: "Make it work, make it right, make it fast.", author: "Kent Beck" },
+    { text: "Một cây làm chẳng nên non, ba cây chụm lại nên hòn núi cao.", author: "Tục ngữ Việt Nam" },
+    { text: "Uống nước nhớ nguồn.", author: "Tục ngữ Việt Nam" },
+    { text: "Lá lành đùm lá rách.", author: "Tục ngữ Việt Nam" },
+    { text: "Programs must be written for people to read.", author: "Harold Abelson" },
+    { text: "Simplicity is the soul of efficiency.", author: "Austin Freeman" },
 ];
 
 const quoteEl = document.getElementById("quote");
 const authorEl = document.getElementById("author");
 
-let lastIndex = -1;
 let currentQuote = null;
 let selectedAuthor = "";
 
@@ -146,13 +145,23 @@ document.getElementById("daily").addEventListener("click", () => {
 
 const authorFilter = document.getElementById("author-filter");
 
-const authors = [...new Set(quotes.map((q) => q.author))];
-authors.forEach((name) => {
-    const option = document.createElement("option");
-    option.value = name;
-    option.textContent = name;
-    authorFilter.appendChild(option);
-});
+function renderAuthorOptions() {
+    const authors = [...new Set(quotes.map((q) => q.author))];
+    authorFilter.innerHTML = "";
+    const all = document.createElement("option");
+    all.value = "";
+    all.textContent = "Tất cả tác giả";
+    authorFilter.appendChild(all);
+    authors.forEach((name) => {
+        const option = document.createElement("option");
+        option.value = name;
+        option.textContent = name;
+        authorFilter.appendChild(option);
+    });
+    authorFilter.value = selectedAuthor;
+}
+
+renderAuthorOptions();
 
 authorFilter.addEventListener("change", () => {
     selectedAuthor = authorFilter.value;
