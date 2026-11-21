@@ -195,3 +195,24 @@ document.getElementById("clear-favorites").addEventListener("click", () => {
         renderFavorites();
     }
 });
+
+const newTextEl = document.getElementById("new-text");
+const newAuthorEl = document.getElementById("new-author");
+const formStatusEl = document.getElementById("form-status");
+
+document.getElementById("add-quote").addEventListener("click", () => {
+    const text = newTextEl.value.trim();
+    const author = newAuthorEl.value.trim() || "Ẩn danh";
+    if (!text) {
+        formStatusEl.textContent = "Vui lòng nhập nội dung câu";
+        return;
+    }
+    const quote = { text, author };
+    quotes.push(quote);
+    saveCustomQuotes([...loadCustomQuotes(), quote]);
+    renderAuthorOptions();
+    displayQuote(quote);
+    newTextEl.value = "";
+    newAuthorEl.value = "";
+    formStatusEl.textContent = "Đã thêm câu của bạn!";
+});
