@@ -236,3 +236,14 @@ function updateCount() {
 }
 
 updateCount();
+
+document.getElementById("clear-custom").addEventListener("click", () => {
+    if (loadCustomQuotes().length === 0) {
+        formStatusEl.textContent = "Bạn chưa thêm câu nào";
+        return;
+    }
+    if (confirm("Xóa tất cả câu bạn đã thêm?")) {
+        saveCustomQuotes([]);
+        location.reload();
+    }
+});
