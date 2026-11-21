@@ -148,3 +148,21 @@ input[type="text"] {
     color: #6b7280;
     font-size: 0.9rem;
 }
+
+#count {
+    margin: 16px 0 0;
+    color: #9ca3af;
+    font-size: 0.85rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    input[type="text"] {
+        background: #111827;
+        color: #f9fafb;
+        border-color: #4b5563;
+    }
+
+    #form-status {
+        color: #9ca3af;
+    }
+}
