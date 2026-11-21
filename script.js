@@ -182,6 +182,7 @@ function renderAuthorOptions() {
 }
 
 renderAuthorOptions();
+updateCount();
 
 authorFilter.addEventListener("change", () => {
     selectedAuthor = authorFilter.value;
@@ -216,3 +217,11 @@ document.getElementById("add-quote").addEventListener("click", () => {
     newAuthorEl.value = "";
     formStatusEl.textContent = "Đã thêm câu của bạn!";
 });
+
+const countEl = document.getElementById("count");
+
+function updateCount() {
+    countEl.textContent = `Có ${quotes.length} câu trích dẫn`;
+}
+
+updateCount();
