@@ -201,6 +201,8 @@ const newTextEl = document.getElementById("new-text");
 const newAuthorEl = document.getElementById("new-author");
 const formStatusEl = document.getElementById("form-status");
 
+const MAX_TEXT_LENGTH = 200;
+
 document.getElementById("add-quote").addEventListener("click", () => {
     const text = newTextEl.value.trim();
     const author = newAuthorEl.value.trim() || "Ẩn danh";
@@ -208,10 +210,19 @@ document.getElementById("add-quote").addEventListener("click", () => {
         formStatusEl.textContent = "Vui lòng nhập nội dung câu";
         return;
     }
+    if (text.length > MAX_TEXT_LENGTH) {
+        formStatusEl.textContent = `Câu quá dài (tối đa ${MAX_TEXT_LENGTH} ký tự)`;
+        return;
+    }
+    if (quotes.some((q) => q.text.toLowerCase() === text.toLowerCase())) {
+        formStatusEl.textContent = "Câu này đã có rồi";
+        return;
+    }
     const quote = { text, author };
     quotes.push(quote);
     saveCustomQuotes([...loadCustomQuotes(), quote]);
     renderAuthorOptions();
+    updateCount();
     displayQuote(quote);
     newTextEl.value = "";
     newAuthorEl.value = "";
