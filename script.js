@@ -242,6 +242,7 @@ document.getElementById("clear-custom").addEventListener("click", () => {
         formStatusEl.textContent = "Bạn chưa thêm câu nào";
         return;
     }
+
     if (confirm("Xóa tất cả câu bạn đã thêm?")) {
         saveCustomQuotes([]);
         location.reload();
