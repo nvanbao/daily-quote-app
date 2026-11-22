@@ -13,6 +13,27 @@ const quotes = [
     { text: "Simplicity is the soul of efficiency.", author: "Austin Freeman" },
 ];
 
+
+const CUSTOM_KEY = "daily-quote-custom";
+
+function loadCustomQuotes() {
+    try {
+        return JSON.parse(localStorage.getItem(CUSTOM_KEY)) || [];
+    } catch (error) {
+        return [];
+    }
+}
+
+function saveCustomQuotes(list) {
+    try {
+        localStorage.setItem(CUSTOM_KEY, JSON.stringify(list));
+    } catch (error) {
+        // bỏ qua nếu trình duyệt chặn localStorage
+    }
+}
+
+quotes.push(...loadCustomQuotes());
+
 const CUSTOM_KEY = "daily-quote-custom";
 
 function loadCustomQuotes() {
