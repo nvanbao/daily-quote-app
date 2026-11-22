@@ -15,6 +15,9 @@ Trang web hiển thị câu trích dẫn ngẫu nhiên, viết bằng HTML, CSS 
 - Thêm câu trích dẫn của riêng bạn (lưu trong trình duyệt), có kiểm tra độ dài và trùng câu
 - Hiển thị tổng số câu trích dẫn
 - Xóa toàn bộ câu đã thêm
+- Thêm câu trích dẫn của riêng bạn (lưu trong trình duyệt), có kiểm tra độ dài và trùng câu
+- Hiển thị tổng số câu trích dẫn
+- Xóa toàn bộ câu đã thêm
 ## Cách chạy
 Mở file `index.html` bằng trình duyệt.
 
