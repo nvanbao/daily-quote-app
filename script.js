@@ -219,6 +219,7 @@ document.getElementById("add-quote").addEventListener("click", () => {
     }
     const quote = { text, author };
     quotes.push(quote);
+
     saveCustomQuotes([...loadCustomQuotes(), quote]);
     renderAuthorOptions();
     updateCount();
