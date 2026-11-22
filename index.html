@@ -1,41 +1,35 @@
 ﻿<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Quote</title>
-  <meta name="description" content="Trang web hiển thị câu trích dẫn ngẫu nhiên, lưu câu yêu thích, viết bằng HTML, CSS và JavaScript thuần.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💬%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Quote</title>
+    <meta name="description" content="Trang web hiển thị câu trích dẫn ngẫu nhiên, lưu câu yêu thích, viết bằng HTML, CSS và JavaScript thuần.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💬%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="card">
-    <h1 id="greeting">Daily Quote</h1>
-    <p id="quote">Đang tải...</p>
-    <p id="author"></p>
-    <select id="author-filter">
-    <option value="">Tất cả tác giả</option>
-    </select>
-    <button id="new-quote">Đổi câu khác</button>
-    <button id="daily">Câu của ngày</button>
-    <button id="copy">Copy</button>
-    <button id="favorite">Yêu thích</button>
-    <button id="clear-favorites">Xóa tất cả</button> 
-    <h2>Thêm câu của bạn</h2>
-    <input id="new-text" type="text" maxlength="200" placeholder="Nội dung câu trích dẫn">
-    <input id="new-author" type="text" placeholder="Tác giả (không bắt buộc)">
-    <button id="add-quote">Thêm câu</button>
-    <p id="form-status"></p>
-    <h2>Thêm câu của bạn</h2>
-    <input id="new-text" type="text" maxlength="200" placeholder="Nội dung câu trích dẫn">
-    <input id="new-author" type="text" placeholder="Tác giả (không bắt buộc)">
-    <button id="add-quote">Thêm câu</button>
-    <button id="clear-custom">Xóa câu đã thêm</button>
-    <p id="form-status"></p>
-    <p id="count"></p>
-    <h2>Câu yêu thích</h2>
-    <ul id="favorites"></ul>
-  </main>
-  <script src="script.js"></script>
+    <main class="card">
+        <h1 id="greeting">Daily Quote</h1>
+        <p id="quote">Đang tải...</p>
+        <p id="author"></p>
+        <select id="author-filter">
+            <option value="">Tất cả tác giả</option>
+        </select>
+        <button id="new-quote">Đổi câu khác</button>
+        <button id="daily">Câu của ngày</button>
+        <button id="copy">Copy</button>
+        <button id="favorite">Yêu thích</button>
+        <button id="clear-favorites">Xóa tất cả</button>
+        <h2>Thêm câu của bạn</h2>
+        <input id="new-text" type="text" maxlength="200" placeholder="Nội dung câu trích dẫn">
+        <input id="new-author" type="text" placeholder="Tác giả (không bắt buộc)">
+        <button id="add-quote">Thêm câu</button>
+        <p id="form-status"></p>
+        <p id="count"></p>
+        <h2>Câu yêu thích</h2>
+        <ul id="favorites"></ul>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>

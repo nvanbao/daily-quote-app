@@ -13,27 +13,6 @@ const quotes = [
     { text: "Simplicity is the soul of efficiency.", author: "Austin Freeman" },
 ];
 
-
-const CUSTOM_KEY = "daily-quote-custom";
-
-function loadCustomQuotes() {
-    try {
-        return JSON.parse(localStorage.getItem(CUSTOM_KEY)) || [];
-    } catch (error) {
-        return [];
-    }
-}
-
-function saveCustomQuotes(list) {
-    try {
-        localStorage.setItem(CUSTOM_KEY, JSON.stringify(list));
-    } catch (error) {
-        // bỏ qua nếu trình duyệt chặn localStorage
-    }
-}
-
-quotes.push(...loadCustomQuotes());
-
 const CUSTOM_KEY = "daily-quote-custom";
 
 function loadCustomQuotes() {
@@ -203,7 +182,6 @@ function renderAuthorOptions() {
 }
 
 renderAuthorOptions();
-updateCount();
 
 authorFilter.addEventListener("change", () => {
     selectedAuthor = authorFilter.value;
@@ -267,26 +245,4 @@ document.getElementById("clear-custom").addEventListener("click", () => {
         saveCustomQuotes([]);
         location.reload();
     }
-});
-
-
-const newTextEl = document.getElementById("new-text");
-const newAuthorEl = document.getElementById("new-author");
-const formStatusEl = document.getElementById("form-status");
-
-document.getElementById("add-quote").addEventListener("click", () => {
-    const text = newTextEl.value.trim();
-    const author = newAuthorEl.value.trim() || "Ẩn danh";
-    if (!text) {
-        formStatusEl.textContent = "Vui lòng nhập nội dung câu";
-        return;
-    }
-    const quote = { text, author };
-    quotes.push(quote);
-    saveCustomQuotes([...loadCustomQuotes(), quote]);
-    renderAuthorOptions();
-    displayQuote(quote);
-    newTextEl.value = "";
-    newAuthorEl.value = "";
-    formStatusEl.textContent = "Đã thêm câu của bạn!";
 });
