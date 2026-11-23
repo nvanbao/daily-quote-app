@@ -1,58 +1,57 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f0f4f8;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f0f4f8;
+    font-family: Arial, sans-serif;
 }
 
 .card {
-  max-width: 520px;
-  margin: 16px;
-  padding: 32px;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  text-align: center;
+    max-width: 520px;
+    margin: 16px;
+    padding: 32px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 h1 {
-  margin-top: 0;
-  font-size: 1.2rem;
-  color: #6b7280;
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #6b7280;
 }
 
 #quote {
-  font-size: 1.4rem;
-  line-height: 1.5;
-  color: #111827;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #111827;
 }
 
 #author {
-  color: #6b7280;
+    color: #6b7280;
 }
 
 button {
-  margin-top: 8px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #2563eb;
-  color: #ffffff;
-  font-size: 1rem;
-  cursor: pointer;
+    margin-top: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
 }
 
 button:hover {
-  background: #1d4ed8;
+    background: #1d4ed8;
 }
-
 
 @media (prefers-color-scheme: dark) {
     body {
@@ -126,45 +125,9 @@ select {
     font-size: 0.9rem;
 }
 
-    .remove:hover {
-        background: transparent;
-        color: #ef4444;
-    }
-
-
-input[type="text"] {
-    display: block;
-    width: 100%;
-    margin: 6px 0;
-    padding: 10px 12px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 1rem;
-}
-
-#form-status {
-    min-height: 1.2em;
-    margin: 8px 0 0;
-    color: #6b7280;
-    font-size: 0.9rem;
-}
-
-#count {
-    margin: 16px 0 0;
-    color: #9ca3af;
-    font-size: 0.85rem;
-}
-
-@media (prefers-color-scheme: dark) {
-    input[type="text"] {
-        background: #111827;
-        color: #f9fafb;
-        border-color: #4b5563;
-    }
-
-    #form-status {
-        color: #9ca3af;
-    }
+.remove:hover {
+    background: transparent;
+    color: #ef4444;
 }
 
 input[type="text"] {
