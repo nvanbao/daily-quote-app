@@ -11,9 +11,9 @@
 <body>
     <main class="card">
         <h1 id="greeting">Daily Quote</h1>
-        <p id="quote">Đang tải...</p>
+        <p id="quote" aria-live="polite">Đang tải...</p>
         <p id="author"></p>
-        <select id="author-filter">
+        <select id="author-filter" aria-label="Lọc câu theo tác giả">
             <option value="">Tất cả tác giả</option>
         </select>
         <button id="new-quote">Đổi câu khác</button>
@@ -22,11 +22,11 @@
         <button id="favorite">Yêu thích</button>
         <button id="clear-favorites">Xóa tất cả</button>
         <h2>Thêm câu của bạn</h2>
-        <input id="new-text" type="text" maxlength="200" placeholder="Nội dung câu trích dẫn">
-        <input id="new-author" type="text" placeholder="Tác giả (không bắt buộc)">
+        <input id="new-text" type="text" maxlength="200" placeholder="Nội dung câu trích dẫn" aria-label="Nội dung câu trích dẫn">
+        <input id="new-author" type="text" placeholder="Tác giả (không bắt buộc)" aria-label="Tác giả">
         <button id="add-quote">Thêm câu</button>
         <button id="clear-custom">Xóa câu đã thêm</button>
-        <p id="form-status"></p>
+        <p id="form-status" role="status"></p>
         <p id="count"></p>
         <h2>Câu yêu thích</h2>
         <ul id="favorites"></ul>
