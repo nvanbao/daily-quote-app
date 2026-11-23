@@ -37,7 +37,26 @@ const quoteEl = document.getElementById("quote");
 const authorEl = document.getElementById("author");
 
 let currentQuote = null;
-let selectedAuthor = "";
+const AUTHOR_KEY = "daily-quote-author";
+
+function loadSelectedAuthor() {
+    try {
+        const saved = localStorage.getItem(AUTHOR_KEY) || "";
+        return quotes.some((q) => q.author === saved) ? saved : "";
+    } catch (error) {
+        return "";
+    }
+}
+
+function saveSelectedAuthor(name) {
+    try {
+        localStorage.setItem(AUTHOR_KEY, name);
+    } catch (error) {
+        // bỏ qua nếu trình duyệt chặn localStorage
+    }
+}
+
+let selectedAuthor = loadSelectedAuthor();
 
 function displayQuote(quote) {
     currentQuote = quote;
@@ -187,6 +206,7 @@ renderAuthorOptions();
 
 authorFilter.addEventListener("change", () => {
     selectedAuthor = authorFilter.value;
+    saveSelectedAuthor(selectedAuthor);
     showRandomQuote();
 });
 
