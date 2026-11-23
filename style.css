@@ -164,3 +164,10 @@ input[type="text"] {
         color: #9ca3af;
     }
 }
+
+button:focus-visible,
+input[type="text"]:focus-visible,
+select:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 2px;
+}
