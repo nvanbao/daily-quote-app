@@ -86,6 +86,8 @@ document.getElementById("greeting").textContent = getGreeting();
 
 document.addEventListener("keydown", (event) => {
     if (event.ctrlKey || event.metaKey || event.altKey) return;
+    const tag = event.target.tagName;
+    if (tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA") return;
     if (event.key === "n" || event.key === "N") {
         showRandomQuote();
     }
