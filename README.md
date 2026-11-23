@@ -15,7 +15,10 @@ Trang web hiển thị câu trích dẫn ngẫu nhiên, viết bằng HTML, CSS 
 - Thêm câu trích dẫn của riêng bạn (lưu trong trình duyệt), có kiểm tra độ dài và trùng câu
 - Hiển thị tổng số câu trích dẫn
 - Xóa toàn bộ câu đã thêm
-
+- Nhấn Enter trong ô nhập để thêm câu; phím tắt `N` không kích hoạt khi đang gõ
+- Nhớ tác giả đang lọc sau khi tải lại trang
+- Tải danh sách câu yêu thích về file `.txt`
+- Hỗ trợ trình đọc màn hình (ARIA) và viền focus khi dùng bàn phím
 ## Cách chạy
 Mở file `index.html` bằng trình duyệt.
 
