@@ -204,7 +204,7 @@ const formStatusEl = document.getElementById("form-status");
 
 const MAX_TEXT_LENGTH = 200;
 
-document.getElementById("add-quote").addEventListener("click", () => {
+function addQuote() {
     const text = newTextEl.value.trim();
     const author = newAuthorEl.value.trim() || "Ẩn danh";
     if (!text) {
@@ -221,7 +221,6 @@ document.getElementById("add-quote").addEventListener("click", () => {
     }
     const quote = { text, author };
     quotes.push(quote);
-
     saveCustomQuotes([...loadCustomQuotes(), quote]);
     renderAuthorOptions();
     updateCount();
@@ -229,6 +228,14 @@ document.getElementById("add-quote").addEventListener("click", () => {
     newTextEl.value = "";
     newAuthorEl.value = "";
     formStatusEl.textContent = "Đã thêm câu của bạn!";
+}
+
+document.getElementById("add-quote").addEventListener("click", addQuote);
+
+[newTextEl, newAuthorEl].forEach((el) => {
+    el.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") addQuote();
+    });
 });
 
 const countEl = document.getElementById("count");
